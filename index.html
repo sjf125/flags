@@ -1,20 +1,111 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
+<head>
+  <title>Flags!</title>
+  <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+<body class="container-fluid">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+  <!-- Modal sign-up -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="sign-up-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="sign-up-label">Sign up!</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up">
+            <div class="form-group">
+              <label for="sign-up-email">Email address</label>
+              <input name="credentials[email]" type="text" class="form-control" id="sign-up-email" placeholder="email">
+            </div>
+            <div class="form-group">
+              <label for="sign-up-pass">Password</label>
+              <input name="credentials[password]" type="password" class="form-control" id="sign-up-pass" placeholder="password">
+            </div>
+            <div class="form-group">
+              <label for="sign-up-pass-confirm">Confirm password</label>
+              <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-pass-confirm" placeholder="confirm password">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+          <div class="alert alert-success alert-dismissable loggedout-hide" id="sign-up-success" role="alert">You successfully signed up!  You can now sign in.</div>
+          <div class="alert alert-danger alert-dismissable loggedout-hide" id="sign-up-failure" role="alert">Oops!  Either the email you entered was already taken, you didn't fill out one of the fields, or there was some other failure.  Please try again!</div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal sign-up -->
+  <!-- Modal change-pass -->
+  <div class="modal fade" id="change-pass-modal" tabindex="-1" role="dialog" aria-labelledby="change-pass-label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="change-pass-label">Change password</h4>
+        </div>
+        <div class="modal-body">
+          <form id="change-pass">
+            <div class="form-group">
+              <label for="old-pass">Old Password</label>
+              <input name="passwords[old]" type="password" class="form-control" id="old-pass" placeholder="old password">
+            </div>
+            <div class="form-group">
+              <label for="new-pass">New Password</label>
+              <input name="passwords[new]" type="password" class="form-control" id="new-pass" placeholder="new password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal change-pass -->
+
+<!-- Navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <form class="navbar-form navbar-right loggedin-hide" id="sign-in">
+          <div class="form-group">
+            <input type="text" name="credentials[email]" class="form-control" placeholder="email">
+            <input type="password" name="credentials[password]" class="form-control" placeholder="password">
+          </div>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+        <button type="submit" class="btn btn-success navbar-btn loggedin-hide" id="sign-up-btn" data-toggle="modal" data-target="#sign-up-modal">
+          Sign up!
+        </button>
+        <button type="submit" class="btn btn-warning navbar-btn loggedout-hide" id="change-pass-btn" data-toggle="modal" data-target="#change-pass-modal">
+          Change password
+        </button>
+        <button type="submit" class="btn btn-danger navbar-btn navbar-right loggedout-hide" id="sign-out">Sign out</button>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+<!-- end navbar -->
+  <div class="content">
+  </div>
+</body>
 </html>
