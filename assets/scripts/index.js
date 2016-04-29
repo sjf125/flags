@@ -1,22 +1,20 @@
 'use strict';
 
-'use strict';
+const displayFlags = function(flags){
+  const template = require('./templates/flag-listing.handlebars');
+  $('.content').append(template({flags}));
+};
 
-// user require with a reference to bundle the file and use it in this file
-// let example = require('./example');
-
-let getFlags = function(){
+const getFlags = function(){
   $.ajax({
     url: "http://localhost:3000/flags",
     // method: 'GET',
     // dataType: 'json'
   }).done(function(flags){
-    displayBooks(flags);
+    displayFlags(flags);
   });
 };
 
-const displayFlags = function(flags){
-  let template = require('./templates/book-listing.handlebars');
-  $('.content').append(template({flags}));
-  });
-};
+$(document).ready(function(){
+  getFlags();
+});
