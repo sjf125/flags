@@ -32,4 +32,6 @@ const addHandlers = () => {
   });
 };
 
-module.exports = addHandlers;
+module.exports = {
+  addHandlers
+};

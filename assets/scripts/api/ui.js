@@ -1,7 +1,6 @@
 'use strict';
 
 const app = require('./apiurl.js');
-const state = require('../state.js');
 
 const signInSuccess = (data) => {
   app.user = data.user;
@@ -38,31 +37,31 @@ const signOutSuccess = () => {
   });
 };
 
-const createGameSuccess = (data) => {
-  console.log(data);
-  $( document ).ready(function() {
-    $('#game-id').text(data.game.id);
-  });
-  state.gameID = data.game.id;
-};
-
-const findGameSuccess = (data) => {
-  console.log(data);
-  $( document ).ready(function() {
-    $('#find-games-output').text(JSON.stringify(data.game));
-  });
-};
-
-const findGamesSuccess = (data) => {
-  console.log(data);
-  $( document ).ready(function() {
-    let result = '';
-    for (var i = 0; i < data.games.length; i++) {
-      result += JSON.stringify(data.games[i], null, "\t");
-    }
-    $('#find-games-output').text(result);
-  });
-};
+// const createGameSuccess = (data) => {
+//   console.log(data);
+//   $( document ).ready(function() {
+//     $('#game-id').text(data.game.id);
+//   });
+//   state.gameID = data.game.id;
+// };
+//
+// const findGameSuccess = (data) => {
+//   console.log(data);
+//   $( document ).ready(function() {
+//     $('#find-games-output').text(JSON.stringify(data.game));
+//   });
+// };
+//
+// const findGamesSuccess = (data) => {
+//   console.log(data);
+//   $( document ).ready(function() {
+//     let result = '';
+//     for (var i = 0; i < data.games.length; i++) {
+//       result += JSON.stringify(data.games[i], null, "\t");
+//     }
+//     $('#find-games-output').text(result);
+//   });
+// };
 
 const success = (data) => {
   console.log(data);
@@ -77,9 +76,9 @@ module.exports = {
   success,
   signInSuccess,
   signOutSuccess,
-  createGameSuccess,
-  findGameSuccess,
-  findGamesSuccess,
+  // createGameSuccess,
+  // findGameSuccess,
+  // findGamesSuccess,
   signUpSuccess,
   signUpFailure,
 };
