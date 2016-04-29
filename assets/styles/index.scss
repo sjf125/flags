@@ -2,7 +2,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'flags';
 
-ul
-{
-    list-style-type: none;
+ul {
+  list-style-type: none;
+}
+
+.spacer100 {
+  height: 100px;
 }
