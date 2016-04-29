@@ -1,6 +1,8 @@
 {{#each flags}}
-  <div class="jumbotron">
-  <h2>{{this.name}}</h2>
-  <img src={{this.imgurl}} class="img-responsive" alt="Image" >
-  </div>
+  {{#each this}}
+    <div class="jumbotron">
+    <h2>{{this.name}}</h2>
+    <img src="{{{this.imgurl}}}" class="img-responsive" alt="Image" />
+    </div>
+  {{/each}}
 {{/each}}

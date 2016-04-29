@@ -3,6 +3,7 @@
 const displayFlags = function(flags){
   const template = require('./templates/flag-listing.handlebars');
   $('.content').append(template({flags}));
+  // console.log(flags);
 };
 
 const getFlags = function(){
@@ -15,6 +16,6 @@ const getFlags = function(){
   });
 };
 
-$(document).ready(function(){
-  getFlags();
-});
+// $(document).ready(function(){
+//   getFlags();
+// });
