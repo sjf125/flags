@@ -34,7 +34,7 @@ const addHandlers = () => {
     let content = $("#comment").val();
     let flag_id = $(".flag").data("id");
     event.preventDefault();
-    authApi.submitComment(authUi.success, authUi.failure, content, flag_id);
+    authApi.submitComment(authUi.commentSuccess, authUi.failure, content, flag_id);
   });
 };
 

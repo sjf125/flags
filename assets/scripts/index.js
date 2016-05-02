@@ -9,6 +9,26 @@ $(() => {
   events.addHandlers();
 });
 
+const getFlag = function(id){
+  $.ajax({
+    url: "http://localhost:3000/flags/" + id,
+    // method: 'GET',
+    // dataType: 'json'
+  }).done(function(data){
+    displayFlag(data.flag);
+  });
+};
+
+const getComments = function(flagID){
+  $.ajax({
+    url: "http://localhost:3000/comments/",
+    // method: 'GET',
+    // dataType: 'json'
+  }).done(function(data){
+    displayComments(data.comments, flagID);
+  });
+};
+
 const displayFlags = function(flags){
   const flagsTemplate = require('./templates/flag-listing.handlebars');
   // const flagTemplate = require('./templates/flag.handlebars');
@@ -34,21 +54,27 @@ const getFlags = function(){
 
 const displayFlag = function(flag){
   const display = require('./templates/flag.handlebars');
-  $('.flagDisplay').empty();
+  $('.flagDisplay, .flag-comments').empty();
+  $('#comment').val('');
   $('.flagName').text(function() {return flag.name;});
   $('.flagDisplay').append(display({flag}));
+  getComments(flag.id);
 };
 
-const getFlag = function(id){
-  console.log(id);
-  $.ajax({
-    url: "http://localhost:3000/flags/" + id,
-    // method: 'GET',
-    // dataType: 'json'
-  }).done(function(data){
-    displayFlag(data.flag);
-  });
+const displayComments = function(comments, flagID) {
+  const display = require('./templates/comments.handlebars');
+  console.log(comments);
+  console.log(flagID);
+
+  for (var i = 0; i < comments.length; i++) {
+    if (comments[i].flag.id === flagID) {
+      let comment = comments[i];
+      $('.flag-comments').append(display({comment}));
+    }
+  }
 };
+
+
 
 $(document).ready(function(){
   getFlags();
