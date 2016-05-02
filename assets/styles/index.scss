@@ -6,10 +6,18 @@ ul {
   list-style-type: none;
 }
 
-.spacer100 {
-  height: 100px;
+.spacer {
+  height: 75px;
 }
 
 .comment-btn {
   margin: 5px 0;
+}
+
+.modal-body {
+  padding: 5px 10px;
+}
+
+.form-group {
+  margin: 0;
 }
