@@ -1,6 +1,7 @@
 <div>
+  {{!-- Overflow: hidden on top div --}}
   {{#each flags}}
-    <div class="well">
+    <div class="well grid">
       <h2 data-id={{id}}>{{name}}</h2>
       <img src={{imgurl}} class="img-responsive flags" data-id={{id}} data-original={{imgurl}} />
     </div>

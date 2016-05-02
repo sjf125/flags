@@ -1,7 +1,7 @@
 'use strict';
 
 const events = require('./api/events.js');
-var $ = require('jquery');
+// var $ = require('jquery');
 require('jquery.lazyload.cjs')($);
 
 // On document ready
@@ -16,8 +16,8 @@ const displayFlags = function(flags){
   $('.flags').on("click", function(){
     localStorage.setItem('flagID',$(this).data("id"));
     let id = localStorage.getItem('flagID');
-    console.log(id);
     $('#flagModal').modal();
+    getFlag(id);
   });
 };
 
@@ -32,13 +32,15 @@ const getFlags = function(){
 };
 
 const displayFlag = function(flag){
-  const template = require('./templates/flag.handlebars');
-  $('.content').append(template({flag}));
-  $('.flags').on("click", function(){
-    console.log(localStorage.getItem('flagID'));
-    let id = localStorage.getItem('flagID');
-    console.log(id);
-  });
+  const display = require('./templates/flag.handlebars');
+  $('.flagDisplay').empty();
+  $('.flagName').text(function() {return flag.name;});
+  $('.flagDisplay').append(display({flag}));
+  // $('.flags').on("click", function(){
+  //   console.log(localStorage.getItem('flagID'));
+  //   let id = localStorage.getItem('flagID');
+  //   console.log(id);
+  // });
 };
 
 const getFlag = function(id){
@@ -48,8 +50,7 @@ const getFlag = function(id){
     // method: 'GET',
     // dataType: 'json'
   }).done(function(data){
-    console.log(data);
-    displayFlags(data.flag);
+    displayFlag(data.flag);
   });
 };
 
