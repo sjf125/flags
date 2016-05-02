@@ -65,6 +65,22 @@ const submitComment = (success, failure, content, flag_id) => {
   .fail(failure);
 };
 
+const editComment = (success, failure, content, id) => {
+  $.ajax({
+    method: 'PATCH',
+    url: app.api + '/comments/' + id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: {
+      comment:  {
+        content: content,
+      },
+    },
+  }).done(success)
+  .fail(failure);
+};
+
 // const createGame = (success, failure) => {
 //   $.ajax({
 //     method: 'POST',
