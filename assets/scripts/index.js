@@ -1,6 +1,8 @@
 'use strict';
 
 const events = require('./api/events.js');
+var $ = require('jquery');
+require('jquery.lazyload.cjs')($);
 
 // On document ready
 $(() => {
@@ -53,7 +55,7 @@ const getFlag = function(id){
 
 $(document).ready(function(){
   getFlags();
-  // $("img").lazyload({
-  //   effect : "fadeIn"
-  // });
+  $("img").lazyload({
+    effect : "fadeIn"
+  });
 });
