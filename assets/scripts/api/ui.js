@@ -59,8 +59,6 @@ module.exports = {
   success,
   signInSuccess,
   signOutSuccess,
-  // createGameSuccess,
-  // findGameSuccess,
   commentSuccess,
   signUpSuccess,
   signUpFailure,

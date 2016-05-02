@@ -1,6 +1,7 @@
 'use strict';
 
 const events = require('./api/events.js');
+const app = require('./api/apiurl.js');
 // var $ = require('jquery');
 require('jquery.lazyload.cjs')($);
 
@@ -63,19 +64,26 @@ const displayFlag = function(flag){
 
 const displayComments = function(comments, flagID) {
   const display = require('./templates/comments.handlebars');
+  const displaySelf = require('./templates/self-comments.handlebars');
   console.log(comments);
-  console.log(flagID);
+  console.log(app.user.email);
 
   for (var i = 0; i < comments.length; i++) {
-    if (comments[i].flag.id === flagID) {
+    if (comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
+      let comment = comments[i];
+      $('.flag-comments').append(displaySelf({comment}));
+    }
+    else if (comments[i].flag.id === flagID) {
       let comment = comments[i];
       $('.flag-comments').append(display({comment}));
     }
   }
 };
 
-
-
 $(document).ready(function(){
   getFlags();
 });
+
+module.exports = {
+  getComments
+};

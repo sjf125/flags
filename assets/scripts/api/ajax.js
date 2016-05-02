@@ -120,8 +120,4 @@ module.exports = {
   signOut,
   changePass,
   submitComment
-  // createGame,
-  // findGame,
-  // findGames,
-  // updateGame,
 };
