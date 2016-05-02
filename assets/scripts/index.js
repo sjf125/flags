@@ -76,13 +76,14 @@ const displayComments = function(comments, flagID) {
       $('.flag-comments').append(display({comment}));
     }
   }
-  $('.edit-comment').on('click', function (event) {
+  $('.edit-comment').on('click', function() {
     let id = $(this).parent().parent().data("id");
     console.log(id);
     let content = $(this).parent().parent().find('.comment-content').text();
     console.log(content);
+    $('#comment').val(content).focus();
     // let content = $("#comment").val();
-    event.preventDefault();
+    // event.preventDefault();
     // authApi.submitComment(authUi.commentSuccess, authUi.failure, content, id);
   });
 };
