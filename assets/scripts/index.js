@@ -67,7 +67,7 @@ const displayComments = function(comments, flagID) {
   const displaySelf = require('./templates/self-comments.handlebars');
   console.log(comments);
   for (var i = 0; i < comments.length; i++) {
-    if (app.user !== undefined && comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
+    if (!!app.user && comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
       let comment = comments[i];
       $('.flag-comments').append(displaySelf({comment}));
     }
