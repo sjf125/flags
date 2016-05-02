@@ -1,8 +1,8 @@
-<ul>
+<div>
   {{#each flags}}
-    <li class="well" data-id={{id}}>
-      <h2>{{name}}</h2>
-      <img src={{imgurl}} class="img-responsive flags" alt="Image" />
-    </li>
+    <div class="well">
+      <h2 data-id={{id}}>{{name}}</h2>
+      <img src={{imgurl}} class="img-responsive flags" data-id={{id}} />
+    </div>
   {{/each}}
-</ul>
+</div>
