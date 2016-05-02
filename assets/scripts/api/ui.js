@@ -41,7 +41,7 @@ const signOutSuccess = () => {
 
 const commentSuccess = (data) => {
   $('.comment-field').fadeOut(250);
-  index.getComments($('.flag').data("id"));
+  // index.getComments($('.flag').data("id"));
   console.log(data);
 };
 
