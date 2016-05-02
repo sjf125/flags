@@ -31,9 +31,10 @@ const addHandlers = () => {
     authApi.changePass(authUi.success, authUi.failure, data);
   });
   $('#submit-comment').on('click', function (event) {
-    let content = getFormFields(this);
+    let content = getFormFields($("#comment-content"));
+    console.log($("#comment").val());
     let flag_id = $(".flag").data("id");
-    console.log(content);
+    console.log(flag_id);
     event.preventDefault();
     authApi.submitComment(authUi.success, authUi.failure, content, flag_id);
   });

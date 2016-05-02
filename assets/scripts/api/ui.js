@@ -70,6 +70,7 @@ const success = (data) => {
 
 const failure = (error) => {
   console.error(error);
+  console.log(app.user.id);
 };
 
 module.exports = {

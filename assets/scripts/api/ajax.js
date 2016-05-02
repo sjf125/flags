@@ -50,6 +50,7 @@ const changePass = (success, failure, data) => {
 const submitComment = (success, failure, content, flag_id) => {
   $.ajax({
     method: 'POST',
+    contentType: "application/json",
     url: app.api + '/comments/',
     headers: {
       Authorization: 'Token token=' + app.user.token,
