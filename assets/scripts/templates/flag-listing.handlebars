@@ -1,9 +1,9 @@
-<div>
-  {{!-- Overflow: hidden on top div --}}
+  {{!-- Overflow: hidden on top div, could apply on click event --}}
+<ul class="grid">
   {{#each flags}}
-    <div class="well grid">
-      <h2 data-id={{id}}>{{name}}</h2>
-      <img src={{imgurl}} class="img-responsive flags" data-id={{id}} data-original={{imgurl}} />
-    </div>
+    <li>
+      <img class="img-responsive flags" data-id={{id}} data-original={{imgurl}} name={{name}} />
+      <h4 data-id={{id}}>{{name}}</h4>
+    </li>
   {{/each}}
-</div>
+</ul>

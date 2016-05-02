@@ -47,6 +47,23 @@ const changePass = (success, failure, data) => {
   .fail(failure);
 };
 
+const submitComment = (success, failure, content, flag_id) => {
+  $.ajax({
+    method: 'POST',
+    url: app.api + '/comments/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    dataProcessing: false,
+    data: {
+      content: content,
+      user_id: app.user.id,
+      flag_id: flag_id,
+    },
+  }).done(success)
+  .fail(failure);
+};
+
 // const createGame = (success, failure) => {
 //   $.ajax({
 //     method: 'POST',
@@ -101,6 +118,7 @@ module.exports = {
   signIn,
   signOut,
   changePass,
+  submitComment
   // createGame,
   // findGame,
   // findGames,

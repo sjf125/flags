@@ -13,11 +13,12 @@ const displayFlags = function(flags){
   const flagsTemplate = require('./templates/flag-listing.handlebars');
   // const flagTemplate = require('./templates/flag.handlebars');
   $('.content').append(flagsTemplate({flags}));
+  $("img.flags").lazyload({
+    effect : "fadeIn"
+  });
   $('.flags').on("click", function(){
-    localStorage.setItem('flagID',$(this).data("id"));
-    let id = localStorage.getItem('flagID');
     $('#flagModal').modal();
-    getFlag(id);
+    getFlag($(this).data("id"));
   });
 };
 
@@ -36,11 +37,6 @@ const displayFlag = function(flag){
   $('.flagDisplay').empty();
   $('.flagName').text(function() {return flag.name;});
   $('.flagDisplay').append(display({flag}));
-  // $('.flags').on("click", function(){
-  //   console.log(localStorage.getItem('flagID'));
-  //   let id = localStorage.getItem('flagID');
-  //   console.log(id);
-  // });
 };
 
 const getFlag = function(id){
@@ -56,7 +52,4 @@ const getFlag = function(id){
 
 $(document).ready(function(){
   getFlags();
-  $("img").lazyload({
-    effect : "fadeIn"
-  });
 });

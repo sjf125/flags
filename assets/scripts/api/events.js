@@ -4,7 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields');
 
 const authApi = require('./ajax.js');
 const authUi = require('./ui.js');
-// const app = require('./apiurl.js');
+const app = require('./apiurl.js');
 
 const addHandlers = () => {
   $( document ).ready(function() {
@@ -29,6 +29,13 @@ const addHandlers = () => {
     let data = getFormFields(this);
     event.preventDefault();
     authApi.changePass(authUi.success, authUi.failure, data);
+  });
+  $('#submit-comment').on('click', function (event) {
+    let content = getFormFields(this);
+    let flag_id = $(".flag").data("id");
+    console.log(content);
+    event.preventDefault();
+    authApi.submitComment(authUi.success, authUi.failure, content, flag_id);
   });
 };
 

@@ -4,6 +4,7 @@ const app = require('./apiurl.js');
 
 const signInSuccess = (data) => {
   app.user = data.user;
+  // localStorage.setItem('currentUser',$(this).data("id"));
   console.log(app);
   $( document ).ready(function() {
     $('.loggedin-hide').fadeOut(500);

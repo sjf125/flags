@@ -1,3 +1,65 @@
-.flags {
+.flag {
+  margin: 5px 0;
+  padding-bottom: 75%;
   width: 100%;
+}
+
+.flag-header {
+  padding: 5px 15px;
+}
+
+.flags {
+  cursor: pointer;
+  // padding-bottom: 75%;
+  // height: 100%;
+  // width: 100%;
+}
+
+li {
+	display: inline-block;
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	font-size: 1rem;
+  margin: 0 0 2.5% 2.5%;
+	vertical-align: top;
+  width: 30.83%;
+	box-shadow: 0 0 5px #ddd;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+ul.grid {
+  font-size: 0px;
+  list-style: none;
+  margin-left: -2.5%;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 10px;
+}
+
+li h3 {
+	margin: 0 0 5px;
+}
+
+@media (max-width: 480px) {
+  ul.grid-nav li {
+		display: block;
+		margin: 0 0 5px;
+	}
+
+  ul.grid {
+		margin-left: 0;
+	}
+
+  li {
+		width: 100% !important; /* over-ride all li styles */
+		margin: 0 0 20px;
+	}
 }
