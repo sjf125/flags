@@ -12,9 +12,6 @@ const clickHandlers = function() {
     $('#edit-comment').addClass('hidden');
     $('#comment').val('');
   });
-  // $('#submit-rating').on('click'), function() {
-  //   let score = $('input[name="myrating"]:checked').val();
-  // });
   $('.edit-comment').on('click', function() {
     $('#comment-field, #edit-comment').removeClass('hidden');
     let id = $(this).parent().parent().data("id");

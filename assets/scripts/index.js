@@ -65,6 +65,7 @@ const displayFlag = function(flag){
   $('.flagDisplay, .flag-comments').empty();
   $('.flagName').text(function() {return flag.name;});
   $('.flagDisplay').append(display({flag}));
+  getRatings(flag.id);
   getComments(flag.id);
 };
 
@@ -72,16 +73,19 @@ const displayRatings = function(ratings, flagID) {
   let userRating = null;
   let flagRatings = [];
   for (let i = 0; i < ratings.length; i++) {
-    if (ratings[i].flag.id === flagID && ratings[i].user.email === app.user.email) {
+    if (!!app.user && ratings[i].flag.id === flagID && ratings[i].user.email === app.user.email) {
       userRating = ratings[i].score;
     }
     if (ratings[i].flag.id === flagID) {
-      ratings[i].score.push(flagRatings);
+      flagRatings.push(ratings[i].score);
     }
   }
+  console.log(userRating);
+  console.log(flagRatings);
   let avgRating = (flagRatings.reduce((a, b) => a + b, 0))/flagRatings.length;
   let element = 'star-' + Math.ceil(avgRating);
   console.log(element);
+
 };
 
 const displayComments = function(comments, flagID) {
