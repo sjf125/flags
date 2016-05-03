@@ -57,7 +57,9 @@ const displayFlag = function(flag){
   const display = require('./templates/flag.handlebars');
   $('.flagDisplay, .flag-comments').empty();
   $('#comment').val('');
-  $('.comment-field').show();
+  $('#show-comment-field').on('click', function() {
+    $('#comment-field').removeClass('hidden');
+  });
   $('.flagName').text(function() {return flag.name;});
   $('.flagDisplay').append(display({flag}));
   getComments(flag.id);
@@ -83,9 +85,7 @@ const displayComments = function(comments, flagID) {
     let content = $(this).parent().parent().find('.comment-content').text();
     console.log(content);
     $('#comment').val(content).focus();
-    // let content = $("#comment").val();
-    // event.preventDefault();
-    // authApi.submitComment(authUi.commentSuccess, authUi.failure, content, id);
+    $('#edit-comment').data("id", id).removeClass('hidden');
   });
 };
 

@@ -30,13 +30,13 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.changePass(authUi.success, authUi.failure, data);
   });
-  $('#submit-comment').on('click', function (event) {
+  $('#new-comment').on('click', function (event) {
     let content = $("#comment").val();
     let flag_id = $(".flag").data("id");
     event.preventDefault();
     authApi.submitComment(authUi.commentSuccess, authUi.failure, content, flag_id);
   });
-  $('.edit-comment').on('click', function (event) {
+  $('#edit-comment').on('click', function (event) {
     console.log('click!');
     // console.log($(this).parent().data("id"));
     // let content = $("#comment").val();
