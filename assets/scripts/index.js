@@ -57,9 +57,6 @@ const displayFlag = function(flag){
   const display = require('./templates/flag.handlebars');
   $('.flagDisplay, .flag-comments').empty();
   $('#comment').val('');
-  $('#show-comment-field').on('click', function() {
-    $('#comment-field').removeClass('hidden');
-  });
   $('.flagName').text(function() {return flag.name;});
   $('.flagDisplay').append(display({flag}));
   getComments(flag.id);
@@ -79,6 +76,16 @@ const displayComments = function(comments, flagID) {
       $('.flag-comments').append(display({comment}));
     }
   }
+  commentClicks();
+};
+
+const commentClicks = function() {
+  $('#show-comment-field, .edit-comment').on('click', function() {
+    $('#comment-field').removeClass('hidden');
+  });
+  $('#cancel-comment, #new-comment').on('click', function() {
+    $('#comment-field').addClass('hidden');
+  });
   $('.edit-comment').on('click', function() {
     let id = $(this).parent().parent().data("id");
     console.log(id);

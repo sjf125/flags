@@ -38,8 +38,8 @@ const addHandlers = () => {
   });
   $('#edit-comment').on('click', function (event) {
     console.log('click!');
-    // console.log($(this).parent().data("id"));
-    // let content = $("#comment").val();
+    console.log($(this).data("id"));
+    let content = $("#comment").val();
     event.preventDefault();
     // authApi.submitComment(authUi.commentSuccess, authUi.failure, content, id);
   });
