@@ -10,7 +10,7 @@ require('jquery.lazyload.cjs')($);
 
 const getFlag = function(id){
   $.ajax({
-    url: "http://localhost:3000/flags/" + id,
+    url: app.api + "/flags/" + id,
     // method: 'GET',
     // dataType: 'json'
   }).done(function(data){
@@ -18,9 +18,19 @@ const getFlag = function(id){
   });
 };
 
+const getRatings = function(flagID){
+  $.ajax({
+    url: app.api + "/ratings/",
+    // method: 'GET',
+    // dataType: 'json'
+  }).done(function(data){
+    displayRatings(data.ratings, flagID);
+  });
+};
+
 const getComments = function(flagID){
   $.ajax({
-    url: "http://localhost:3000/comments/",
+    url: app.api + "/comments/",
     // method: 'GET',
     // dataType: 'json'
   }).done(function(data){
@@ -30,7 +40,6 @@ const getComments = function(flagID){
 
 const displayFlags = function(flags){
   const flagsTemplate = require('./templates/flag-listing.handlebars');
-  // const flagTemplate = require('./templates/flag.handlebars');
   $('.content').append(flagsTemplate({flags}));
   $("img.flags").lazyload({
     effect : "fadeIn"
@@ -43,7 +52,7 @@ const displayFlags = function(flags){
 
 const getFlags = function(){
   $.ajax({
-    url: "http://localhost:3000/flags",
+    url: app.api + "/flags",
     // method: 'GET',
     // dataType: 'json'
   }).done(function(data){

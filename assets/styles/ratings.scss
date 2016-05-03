@@ -1,3 +1,8 @@
+.rating-avg {
+  text-align: left;
+  font-size: x-large;
+}
+
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -5,7 +10,9 @@
   font-size: x-large;
 }
 
-.rating > span {
+.rating > span,
+.rating-avg > span {
+  color: #555;
   display: inline-block;
   position: relative;
   width: 1.1em;
