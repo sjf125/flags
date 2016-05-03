@@ -43,6 +43,7 @@ const addHandlers = () => {
     event.preventDefault();
     authApi.editComment(authUi.commentSuccess, authUi.failure, content, id);
   });
+  // Delete comment event in commentClicks() in index.js
 };
 
 module.exports = {

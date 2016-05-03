@@ -81,7 +81,7 @@ const editComment = (success, failure, content, id) => {
   .fail(failure);
 };
 
-const deleteComment = (success, failure, content, id) => {
+const deleteComment = (success, failure, id) => {
   $.ajax({
     method: 'DELETE',
     url: app.api + '/comments/' + id,

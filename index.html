@@ -20,8 +20,8 @@
         <div class="modal-body">
           <form id="sign-up">
             <div class="form-group">
-              <label for="sign-up-email">Email address</label>
-              <input name="credentials[email]" type="text" class="form-control" id="sign-up-email" placeholder="email">
+              <label for="sign-up-email">Username</label>
+              <input name="credentials[email]" type="text" class="form-control" id="sign-up-email" placeholder="username">
             </div>
             <div class="form-group">
               <label for="sign-up-pass">Password</label>
@@ -31,7 +31,7 @@
               <label for="sign-up-pass-confirm">Confirm password</label>
               <input name="credentials[password_confirmation]" type="password" class="form-control" id="sign-up-pass-confirm" placeholder="confirm password">
             </div>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" class="btn btn-success comment-btn">Submit</button>
           </form>
           <div class="alert alert-success alert-dismissable loggedout-hide" id="sign-up-success" role="alert">You successfully signed up!  You can now sign in.</div>
           <div class="alert alert-danger alert-dismissable loggedout-hide" id="sign-up-failure" role="alert">Oops!  Either the email you entered was already taken, you didn't fill out one of the fields, or there was some other failure.  Please try again!</div>
@@ -120,7 +120,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <form class="navbar-form navbar-right loggedin-hide" id="sign-in">
           <div class="form-group">
-            <input type="text" name="credentials[email]" class="form-control" placeholder="email">
+            <input type="text" name="credentials[email]" class="form-control" placeholder="username">
             <input type="password" name="credentials[password]" class="form-control" placeholder="password">
           </div>
           <button type="submit" class="btn btn-primary">Sign in</button>

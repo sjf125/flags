@@ -2,7 +2,9 @@
 
 const events = require('./api/events.js');
 const app = require('./api/apiurl.js');
-// var $ = require('jquery');
+const authApi = require('./api/ajax.js');
+const authUi = require('./api/ui.js');
+
 require('jquery.lazyload.cjs')($);
 
 // On document ready
@@ -97,10 +99,15 @@ const commentClicks = function() {
   $('.delete-comment').on('click', function() {
     $(this).addClass('hidden');
     $(this).parent().find('.delete-confirm').removeClass('hidden');
-    let id = $(this).parent().parent().data("id");
-    console.log(id);
   });
-  $('.delete-comment-no').on('click', function(){
+  $('.delete-comment-yes').on('click', function(event) {
+    let id = $(this).data("id");
+    console.log(id);
+    $(this).parent().parent().parent().fadeOut(500);
+    event.preventDefault();
+    authApi.deleteComment(authUi.success, authUi.failure, id);
+  });
+  $('.delete-comment-no').on('click', function() {
     $(this).parent().addClass('hidden');
     $(this).parent().parent().find('.delete-comment').removeClass('hidden');
   });
