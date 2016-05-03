@@ -78,23 +78,31 @@ const displayComments = function(comments, flagID) {
 };
 
 const commentClicks = function() {
+  $('#cancel-comment, #new-comment, #edit-comment').on('click', function() {
+    $('#comment-field, #new-comment, #edit-comment').addClass('hidden');
+  });
   $('#show-comment-field').on('click', function() {
     $('#comment-field, #new-comment').removeClass('hidden');
     $('#edit-comment').addClass('hidden');
     $('#comment').val('');
   });
-  $('#cancel-comment, #new-comment, #edit-comment').on('click', function() {
-    $('#comment-field, #new-comment, #edit-comment').addClass('hidden');
-  });
   $('.edit-comment').on('click', function() {
     $('#comment-field, #edit-comment').removeClass('hidden');
     let id = $(this).parent().parent().data("id");
-    console.log(id);
     let content = $(this).parent().parent().find('.comment-content').text();
-    console.log(content);
     $('#comment').val(content).focus();
     $('#new-comment').addClass('hidden');
     $('#edit-comment').data("id", id).removeClass('hidden');
+  });
+  $('.delete-comment').on('click', function() {
+    $(this).addClass('hidden');
+    $(this).parent().find('.delete-confirm').removeClass('hidden');
+    let id = $(this).parent().parent().data("id");
+    console.log(id);
+  });
+  $('.delete-comment-no').on('click', function(){
+    $(this).parent().addClass('hidden');
+    $(this).parent().parent().find('.delete-comment').removeClass('hidden');
   });
 };
 
