@@ -10,6 +10,7 @@ require('jquery.lazyload.cjs')($);
 
 // On document ready
 $(() => {
+  getFlags();
   events.addHandlers();
 });
 
@@ -80,9 +81,9 @@ const displayComments = function(comments, flagID) {
   comment.clickHandlers();
 };
 
-$(document).ready(function(){
-  getFlags();
-});
+// $(document).ready(function(){
+//   getFlags();
+// });
 
 module.exports = {
   getComments

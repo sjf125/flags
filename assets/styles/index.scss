@@ -1,6 +1,7 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'flags';
+@import 'comments';
 
 ul {
   list-style-type: none;
@@ -10,18 +11,10 @@ ul {
   height: 75px;
 }
 
-.comment-btn {
-  margin: 5px 0;
-}
-
 .modal-body {
   padding: 5px 10px;
 }
 
 .form-group {
   margin: 0;
-}
-
-a {
-  cursor: pointer;
 }
