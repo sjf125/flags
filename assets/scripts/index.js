@@ -57,6 +57,7 @@ const displayFlag = function(flag){
   const display = require('./templates/flag.handlebars');
   $('.flagDisplay, .flag-comments').empty();
   $('#comment').val('');
+  $('.comment-field').show();
   $('.flagName').text(function() {return flag.name;});
   $('.flagDisplay').append(display({flag}));
   getComments(flag.id);
