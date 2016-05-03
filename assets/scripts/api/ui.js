@@ -1,7 +1,9 @@
 'use strict';
 
 const app = require('./apiurl.js');
-const index = require('../index.js');
+// const index = require('../index.js');
+const comments = require('../comments.js');
+
 
 const signInSuccess = (data) => {
   app.user = data.user;
@@ -43,6 +45,8 @@ const commentSuccess = (data) => {
   $('#comment-success').removeClass('hidden').fadeOut(2000, function(){
     $('#comment-success').addClass('hidden').show();
   });
+  console.log($('.flag').data('id'));
+  comments.getComments($('.flag').data('id'));
   console.log(data);
 };
 
@@ -62,5 +66,5 @@ module.exports = {
   signOutSuccess,
   commentSuccess,
   signUpSuccess,
-  signUpFailure,
+  signUpFailure
 };
