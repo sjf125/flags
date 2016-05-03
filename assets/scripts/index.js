@@ -70,22 +70,32 @@ const displayFlag = function(flag){
 };
 
 const displayRatings = function(ratings, flagID) {
+  $('#submit-rating, #update-rating').addClass('hidden');
   let userRating = null;
   let flagRatings = [];
   for (let i = 0; i < ratings.length; i++) {
     if (!!app.user && ratings[i].flag.id === flagID && ratings[i].user.email === app.user.email) {
-      userRating = ratings[i].score;
+      userRating = '.star-' + ratings[i].score;
     }
     if (ratings[i].flag.id === flagID) {
       flagRatings.push(ratings[i].score);
     }
   }
-  console.log(userRating);
-  console.log(flagRatings);
+  if(userRating !== null) {
+    $(userRating).prop('checked', true);
+    $('#update-rating').removeClass('hidden');
+  }
+  else {
+    $('.rating').children().prop('checked', false);
+    $('#submit-rating').removeClass('hidden');
+  }
   let avgRating = (flagRatings.reduce((a, b) => a + b, 0))/flagRatings.length;
-  let element = 'star-' + Math.ceil(avgRating);
-  console.log(element);
-
+  if(!avgRating) {avgRating = '(none yet)';}
+  $('.avg-score').text(avgRating);
+  // let element = '.star-' + Math.ceil(avgRating);
+  // console.log(element);
+  // $(element).css('color', 'gold');
+  // $(element).prevAll().addClass('highlight');
 };
 
 const displayComments = function(comments, flagID) {
