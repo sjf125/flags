@@ -1,5 +1,5 @@
 <div class="well comment" data-id={{comment.id}}>
-    <header class="comment-data">Posted by: you - <a class="edit-comment">Edit</a> - <a class="delete-comment">Delete</a>
+    <header class="comment-data">{{comment.id}} Posted by: you at {{comment.created_at}} - <a class="edit-comment">Edit</a> - <a class="delete-comment">Delete</a>
       <span class="delete-confirm hidden">Are you sure you want to delete this comment? <a class="delete-comment-yes" data-id={{comment.id}}>Yes</a> | <a class="delete-comment-no">No</a></span>
     </header>
     <main class="comment-content">{{comment.content}}</main>

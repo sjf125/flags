@@ -8,12 +8,6 @@ const comment = require('./comment-click-handlers.js');
 
 require('jquery.lazyload.cjs')($);
 
-// On document ready
-$(() => {
-  getFlags();
-  events.addHandlers();
-});
-
 const getFlag = function(id){
   $.ajax({
     url: "http://localhost:3000/flags/" + id,
@@ -68,7 +62,14 @@ const displayFlag = function(flag){
 const displayComments = function(comments, flagID) {
   const display = require('./templates/comments.handlebars');
   const displaySelf = require('./templates/self-comments.handlebars');
-  for (var i = 0; i < comments.length; i++) {
+  // let commentIDs = [];
+  // for (let i = 0; i < comments.length; i++) {
+  //   if (comments[i].flag.id === flagID) {
+  //     comments[i].
+  //   }
+  // };
+
+  for (let i = 0; i < comments.length; i++) {
     if (!!app.user && comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
       let comment = comments[i];
       $('.flag-comments').append(displaySelf({comment}));
@@ -81,9 +82,11 @@ const displayComments = function(comments, flagID) {
   comment.clickHandlers();
 };
 
-// $(document).ready(function(){
-//   getFlags();
-// });
+// On document ready
+$(() => {
+  getFlags();
+  events.addHandlers();
+});
 
 module.exports = {
   getComments
