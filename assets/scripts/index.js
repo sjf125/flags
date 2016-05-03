@@ -56,7 +56,6 @@ const getFlags = function(){
 const displayFlag = function(flag){
   const display = require('./templates/flag.handlebars');
   $('.flagDisplay, .flag-comments').empty();
-  $('#comment').val('');
   $('.flagName').text(function() {return flag.name;});
   $('.flagDisplay').append(display({flag}));
   getComments(flag.id);
@@ -65,7 +64,6 @@ const displayFlag = function(flag){
 const displayComments = function(comments, flagID) {
   const display = require('./templates/comments.handlebars');
   const displaySelf = require('./templates/self-comments.handlebars');
-  console.log(comments);
   for (var i = 0; i < comments.length; i++) {
     if (!!app.user && comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
       let comment = comments[i];
@@ -80,18 +78,22 @@ const displayComments = function(comments, flagID) {
 };
 
 const commentClicks = function() {
-  $('#show-comment-field, .edit-comment').on('click', function() {
-    $('#comment-field').removeClass('hidden');
+  $('#show-comment-field').on('click', function() {
+    $('#comment-field, #new-comment').removeClass('hidden');
+    $('#edit-comment').addClass('hidden');
+    $('#comment').val('');
   });
-  $('#cancel-comment, #new-comment').on('click', function() {
-    $('#comment-field').addClass('hidden');
+  $('#cancel-comment, #new-comment, #edit-comment').on('click', function() {
+    $('#comment-field, #new-comment, #edit-comment').addClass('hidden');
   });
   $('.edit-comment').on('click', function() {
+    $('#comment-field, #edit-comment').removeClass('hidden');
     let id = $(this).parent().parent().data("id");
     console.log(id);
     let content = $(this).parent().parent().find('.comment-content').text();
     console.log(content);
     $('#comment').val(content).focus();
+    $('#new-comment').addClass('hidden');
     $('#edit-comment').data("id", id).removeClass('hidden');
   });
 };

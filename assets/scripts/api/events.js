@@ -37,11 +37,11 @@ const addHandlers = () => {
     authApi.submitComment(authUi.commentSuccess, authUi.failure, content, flag_id);
   });
   $('#edit-comment').on('click', function (event) {
-    console.log('click!');
-    console.log($(this).data("id"));
+    let id = $(this).data("id");
     let content = $("#comment").val();
+    $('#edit-comment').addClass('hidden');
     event.preventDefault();
-    // authApi.submitComment(authUi.commentSuccess, authUi.failure, content, id);
+    authApi.editComment(authUi.commentSuccess, authUi.failure, content, id);
   });
 };
 

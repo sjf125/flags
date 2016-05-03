@@ -40,9 +40,9 @@ const signOutSuccess = () => {
 };
 
 const commentSuccess = (data) => {
-  // $('.comment-field').fadeOut(250);
-  $('#comment-success').removeClass("hidden");
-  // index.getComments($('.flag').data("id"));
+  $('#comment-success').removeClass('hidden').fadeOut(2000, function(){
+    $('#comment-success').addClass('hidden').show();
+  });
   console.log(data);
 };
 

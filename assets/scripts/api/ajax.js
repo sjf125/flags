@@ -81,6 +81,17 @@ const editComment = (success, failure, content, id) => {
   .fail(failure);
 };
 
+const deleteComment = (success, failure, content, id) => {
+  $.ajax({
+    method: 'DELETE',
+    url: app.api + '/comments/' + id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  }).done(success)
+  .fail(failure);
+};
+
 // const createGame = (success, failure) => {
 //   $.ajax({
 //     method: 'POST',
@@ -135,5 +146,7 @@ module.exports = {
   signIn,
   signOut,
   changePass,
-  submitComment
+  submitComment,
+  editComment,
+  deleteComment
 };
