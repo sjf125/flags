@@ -92,6 +92,24 @@ const deleteComment = (success, failure, id) => {
   .fail(failure);
 };
 
+const submitRating = (success, failure, score, flag_id) => {
+  $.ajax({
+    method: 'POST',
+    url: app.api + '/ratings/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: {
+      rating:  {
+        score: score,
+        user_id: app.user.id,
+        flag_id: flag_id,
+      },
+    },
+  }).done(success)
+  .fail(failure);
+};
+
 module.exports = {
   signUp,
   signIn,
@@ -99,5 +117,6 @@ module.exports = {
   changePass,
   submitComment,
   editComment,
-  deleteComment
+  deleteComment,
+  submitRating
 };

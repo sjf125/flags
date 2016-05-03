@@ -68,6 +68,22 @@ const displayFlag = function(flag){
   getComments(flag.id);
 };
 
+const displayRatings = function(ratings, flagID) {
+  let userRating = null;
+  let flagRatings = [];
+  for (let i = 0; i < ratings.length; i++) {
+    if (ratings[i].flag.id === flagID && ratings[i].user.email === app.user.email) {
+      userRating = ratings[i].score;
+    }
+    if (ratings[i].flag.id === flagID) {
+      ratings[i].score.push(flagRatings);
+    }
+  }
+  let avgRating = (flagRatings.reduce((a, b) => a + b, 0))/flagRatings.length;
+  let element = 'star-' + Math.ceil(avgRating);
+  console.log(element);
+};
+
 const displayComments = function(comments, flagID) {
   const display = require('./templates/comments.handlebars');
   const displaySelf = require('./templates/self-comments.handlebars');

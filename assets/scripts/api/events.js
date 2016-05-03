@@ -44,6 +44,13 @@ const addHandlers = () => {
     authApi.editComment(authUi.commentSuccess, authUi.failure, content, id);
   });
   // Delete comment event in commentClicks() in index.js
+  $('#submit-rating').on('click', function (event) {
+    let score = $('input[name="myrating"]:checked').val();
+    let flag_id = $(".flag").data("id");
+    console.log(score);
+    event.preventDefault();
+    authApi.submitRating(authUi.commentSuccess, authUi.failure, score, flag_id);
+  });
 };
 
 module.exports = {
