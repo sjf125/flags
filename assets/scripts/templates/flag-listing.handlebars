@@ -1,8 +1,8 @@
   {{!-- Overflow: hidden on top div, could apply on click event --}}
 <ul class="grid">
   {{#each flags}}
-    <li class="flags" data-id={{id}}>
-      <img class="img-responsive flags" data-id={{id}} data-original={{imgurl}} name={{name}} />
+    <li class="flag-tile" data-id={{id}}>
+      <img class="img-responsive gallery-flag" data-id={{id}} data-original={{imgurl}} name={{name}} />
       <h4 data-id={{id}}>{{name}}</h4>
     </li>
   {{/each}}

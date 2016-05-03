@@ -41,10 +41,10 @@ const getComments = function(flagID){
 const displayFlags = function(flags){
   const flagsTemplate = require('./templates/flag-listing.handlebars');
   $('.content').append(flagsTemplate({flags}));
-  $("img.flags").lazyload({
+  $(".gallery-flag").lazyload({
     effect : "fadeIn"
   });
-  $('.flags').on("click", function(){
+  $('.flag-tile').on("click", function(){
     $('#flagModal').modal();
     getFlag($(this).data("id"));
   });
@@ -77,7 +77,7 @@ const displayComments = function(comments, flagID) {
   //     comments[i].
   //   }
   // };
-
+  // debugger;
   for (let i = 0; i < comments.length; i++) {
     if (!!app.user && comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
       let comment = comments[i];

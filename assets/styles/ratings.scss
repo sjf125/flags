@@ -1,13 +1,14 @@
+.rating,
 .rating-avg {
-  text-align: left;
   font-size: x-large;
+  margin-right: 5px;
+  text-align: left;
 }
 
 .rating {
+  float: left;
   unicode-bidi: bidi-override;
   direction: rtl;
-  text-align: left;
-  font-size: x-large;
 }
 
 .rating > span,
@@ -40,7 +41,8 @@
    top:3px;
    width:1.1em;
    height:1.1em;
-   position:relative;
+   position: absolute;
    z-index:2;
    opacity:0;
+   vertical-align: center;
 }
