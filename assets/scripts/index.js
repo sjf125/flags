@@ -9,37 +9,15 @@ const comments = require('./comments.js');
 
 require('jquery.lazyload.cjs')($);
 
-// const displayComments = function(comments, flagID) {
-//   $('.flag-comments').empty();
-//   const display = require('./templates/comments.handlebars');
-//   const displaySelf = require('./templates/self-comments.handlebars');
-//   // let commentIDs = [];
-//   // for (let i = 0; i < comments.length; i++) {
-//   //   if (comments[i].flag.id === flagID) {
-//   //     comments[i].
-//   //   }
-//   // };
-//   // debugger;
-//   for (let i = 0; i < comments.length; i++) {
-//     if (!!app.user && comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
-//       let comment = comments[i];
-//       $('.flag-comments').append(displaySelf({comment}));
-//     }
-//     else if (comments[i].flag.id === flagID) {
-//       let comment = comments[i];
-//       $('.flag-comments').append(display({comment}));
-//     }
-//   }
-//   handlers.clickHandlers();
-// };
-
 const displayRatings = function(ratings, flagID) {
   $('#submit-rating, #update-rating').addClass('hidden');
   let userRating = null;
+  let ratingID = null;
   let flagRatings = [];
   for (let i = 0; i < ratings.length; i++) {
     if (!!app.user && ratings[i].flag.id === flagID && ratings[i].user.email === app.user.email) {
       userRating = '.star-' + ratings[i].score;
+      ratingID = ratings[i].id;
     }
     if (ratings[i].flag.id === flagID) {
       flagRatings.push(ratings[i].score);
@@ -48,6 +26,7 @@ const displayRatings = function(ratings, flagID) {
   if(userRating !== null) {
     $(userRating).prop('checked', true);
     $('#update-rating').removeClass('hidden');
+    $('.rating').data('id', ratingID);
   }
   else {
     $('.rating').children().prop('checked', false);
@@ -71,16 +50,6 @@ const getRatings = function(flagID){
     displayRatings(data.ratings, flagID);
   });
 };
-
-// const getComments = function(flagID){
-//   $.ajax({
-//     url: app.api + "/comments/",
-//     // method: 'GET',
-//     // dataType: 'json'
-//   }).done(function(data){
-//     displayComments(data.comments, flagID);
-//   });
-// };
 
 const displayFlag = function(flag){
   const display = require('./templates/flag.handlebars');
@@ -127,10 +96,6 @@ const getFlags = function(){
 $(() => {
   getFlags();
   events.addHandlers();
-});
-
-$('#update-rating').on('click', function() {
-  authUi.test();
 });
 
 // module.exports = {

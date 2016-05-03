@@ -100,10 +100,26 @@ const submitRating = (success, failure, score, flag_id) => {
       Authorization: 'Token token=' + app.user.token,
     },
     data: {
-      rating:  {
+      rating: {
         score: score,
         user_id: app.user.id,
         flag_id: flag_id,
+      },
+    },
+  }).done(success)
+  .fail(failure);
+};
+
+const updateRating = (success, failure, score, id) => {
+  $.ajax({
+    method: 'PATCH',
+    url: app.api + '/ratings/' + id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: {
+      rating: {
+        score: score,
       },
     },
   }).done(success)
@@ -118,5 +134,6 @@ module.exports = {
   submitComment,
   editComment,
   deleteComment,
-  submitRating
+  submitRating,
+  updateRating
 };
