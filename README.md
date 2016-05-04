@@ -24,6 +24,8 @@ See it here!  `http://sjf125.github.io/flags/`
 -   Display flags in groups by category (e.g. continent)
 -   Display average rating as star rating icons (couldn't get it to work
     satisfactorily)
+-   Make comments appear in order of submission; currently gets out of order if
+    an edit is made    
 -   Make comments nested, so a user can reply to a particular comments
 -   Allow users to upload new flags, to discuss redesigns (would need active
     moderation on the site)
@@ -42,30 +44,6 @@ See it here!  `http://sjf125.github.io/flags/`
 
 -   Gallery: `https://app.moqups.com/sjf125/woZADwAU/edit/page/abf45668b`
 -   Flag modal: `https://app.moqups.com/sjf125/woZADwAU/edit/page/a86781858`
-
-## Routes
-
--   Prefix Verb   URI Pattern                    Controller#Action
--    ratings GET    /ratings(.:format)             ratings#index
--            POST   /ratings(.:format)             ratings#create
--     rating GET    /ratings/:id(.:format)         ratings#show
--            PATCH  /ratings/:id(.:format)         ratings#update
--            PUT    /ratings/:id(.:format)         ratings#update
--            DELETE /ratings/:id(.:format)         ratings#destroy
--   comments GET    /comments(.:format)            comments#index
--            POST   /comments(.:format)            comments#create
--    comment GET    /comments/:id(.:format)        comments#show
--            PATCH  /comments/:id(.:format)        comments#update
--            PUT    /comments/:id(.:format)        comments#update
--            DELETE /comments/:id(.:format)        comments#destroy
--      flags GET    /flags(.:format)               flags#index
--       flag GET    /flags/:id(.:format)           flags#show
--    sign_up POST   /sign-up(.:format)             users#signup
--    sign_in POST   /sign-in(.:format)             users#signin
--            DELETE /sign-out/:id(.:format)        users#signout
--            PATCH  /change-password/:id(.:format) users#changepw
--      users GET    /users(.:format)               users#index
--       user GET    /users/:id(.:format)           users#show
 
 ## [License](LICENSE)
 
