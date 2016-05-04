@@ -5,7 +5,7 @@ flags of the world.
 
 See it here!  `http://sjf125.github.io/flags/`
 
-Backend repository: `https://github.com/sjf125/flags-api`
+Back-end repository: `https://github.com/sjf125/flags-api`
 
 ## Approach
 
