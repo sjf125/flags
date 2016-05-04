@@ -34,7 +34,7 @@ const displayRatings = function(ratings, flagID) {
   }
   let avgRating = (flagRatings.reduce((a, b) => a + b, 0))/flagRatings.length;
   if(!avgRating) {avgRating = '(none yet)';}
-  $('.avg-score').text(avgRating);
+  $('.avg-score').text(avgRating.toFixed(1));
   // let element = '.star-' + Math.ceil(avgRating);
   // console.log(element);
   // $(element).css('color', 'gold');
