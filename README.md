@@ -30,6 +30,14 @@ See it here!  `http://sjf125.github.io/flags/`
 -   Allow users to upload new flags, to discuss redesigns (would need active
     moderation on the site)
 
+## Technologies used
+
+-  Javascript
+-  Ruby on rails
+-  jQuery
+-  HTML5
+-  CSS
+
 ## User stories
 
 -   As a vexilogical enthusiast, I would like to view flag designs on a cleanly
