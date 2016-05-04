@@ -3,7 +3,7 @@
 const events = require('./api/events.js');
 const app = require('./api/apiurl.js');
 // const authApi = require('./api/ajax.js');
-const authUi = require('./api/ui.js');
+// const authUi = require('./api/ui.js');
 // const handlers = require('./comment-click-handlers.js');
 const comments = require('./comments.js');
 

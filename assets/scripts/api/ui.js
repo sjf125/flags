@@ -45,8 +45,15 @@ const commentSuccess = (data) => {
   $('#comment-success').removeClass('hidden').fadeOut(2000, function(){
     $('#comment-success').addClass('hidden').show();
   });
-  console.log($('.flag').data('id'));
   comments.getComments($('.flag').data('id'));
+  console.log(data);
+};
+
+const ratingSuccess = (data) => {
+  $('#rating-success').removeClass('hidden').fadeOut(2000, function(){
+    $('#rating-success').addClass('hidden').show();
+  });
+  $('#submit-rating, #update-rating').addClass('hidden');
   console.log(data);
 };
 
@@ -66,5 +73,6 @@ module.exports = {
   signOutSuccess,
   commentSuccess,
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
+  ratingSuccess
 };

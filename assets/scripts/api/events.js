@@ -49,14 +49,14 @@ const addHandlers = () => {
     let flag_id = $(".flag").data("id");
     console.log(score);
     event.preventDefault();
-    authApi.submitRating(authUi.success, authUi.failure, score, flag_id);
+    authApi.submitRating(authUi.ratingSuccess, authUi.failure, score, flag_id);
   });
   $('#update-rating').on('click', function (event) {
     let score = $('input[name="myrating"]:checked').val();
     let id = $(".rating").data("id");
     console.log(score);
     event.preventDefault();
-    authApi.updateRating(authUi.success, authUi.failure, score, id);
+    authApi.updateRating(authUi.ratingSuccess, authUi.failure, score, id);
   });
 };
 
