@@ -3,9 +3,9 @@
 An app to view, rate, and comment with other users on the design of various
 flags of the world.
 
-See it here!  `http://sjf125.github.io/flags/`
+See it here!  http://sjf125.github.io/flags/
 
-Back-end repository: `https://github.com/sjf125/flags-api`
+Back-end repository: https://github.com/sjf125/flags-api
 
 ## Approach
 
