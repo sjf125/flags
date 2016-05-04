@@ -5,6 +5,8 @@ flags of the world.
 
 See it here!  `http://sjf125.github.io/flags/`
 
+Backend repository: `https://github.com/sjf125/flags-api`
+
 ## Approach
 
 1.  Scrape flag image location data from wikipedia to seed flags database with
