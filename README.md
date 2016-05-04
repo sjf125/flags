@@ -7,16 +7,16 @@ See it here!  `http://sjf125.github.io/flags/`
 
 ## Approach
 
-1.   Scrape flag image location data from wikipedia to seed flags database with
-2.   Set up backend API with activerecord scaffolding of controllers, models,
+1.  Scrape flag image location data from wikipedia to seed flags database with
+2.  Set up backend API with activerecord scaffolding of controllers, models,
     serializers, databases and routes
-3.   Test that routes are working with curl requests
-4.   Start front end by setting up handlebars to display flags from flags
+3.  Test that routes are working with curl requests
+4.  Start front end by setting up handlebars to display flags from flags
     database
-5.   Set up modal to display a single flag
-6.   Add comments to flag modal (GET and POST)
-7.   Add comment edit and delete functionality
-8.   Add rating submission, updating, and display functionality
+5.  Set up modal to display a single flag
+6.  Add comments to flag modal (GET and POST)
+7.  Add comment edit and delete functionality
+8.  Add rating submission, updating, and display functionality
 
 ## TODO
 
