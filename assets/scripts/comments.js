@@ -9,13 +9,6 @@ const displayComments = function(comments, flagID) {
   $('.flag-comments').empty();
   const display = require('./templates/comments.handlebars');
   const displaySelf = require('./templates/self-comments.handlebars');
-  // let commentIDs = [];
-  // for (let i = 0; i < comments.length; i++) {
-  //   if (comments[i].flag.id === flagID) {
-  //     comments[i].
-  //   }
-  // };
-  // debugger;
   for (let i = 0; i < comments.length; i++) {
     if (!!app.user && comments[i].flag.id === flagID && comments[i].user.email === app.user.email) {
       let comment = comments[i];
